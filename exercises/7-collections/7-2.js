@@ -5,26 +5,33 @@ import * as Utils from "../../scripts/utils.js";
 
 let width = context.canvas.width;
 let height = context.canvas.height;
-
+let frameCount = 0;
 
 
 setup();
 draw();
+let snails = [];
 
 function setup() {
     context.textAlign = "center";
     context.fillStyle = "white";
     for(let i = 0 ; i< 5 ; i++){
-        if (i % 2 == 0){ context.fillStyle = ' green';}
-        else (context.fillStyle ='yellow');
+        if (i % 2 == 0){ context.fillStyle = ' #295724';}
+        else (context.fillStyle ='#76f268');
         context.fillRect(0,height/5*i ,width,height/5);
        
     }
 }
 
+
+
 function draw() {
+    frameCount++;
     let space = height / 5;
-    drawSnail(space / 2, space / 2, space, 1);
+    for(let i = 0 ; i<5;i++){
+       snails [i] = drawSnail(0, space *i+(space/2), space, i+1);
+        
+    }
 }
 
 function drawSnail(x, y, sizeY, number) {
@@ -52,3 +59,4 @@ function drawSnail(x, y, sizeY, number) {
     context.font = "bold " + sizeY / 5 + "pt Arial";
     context.fillText(number, x, y + sizeY / 8);
 }
+

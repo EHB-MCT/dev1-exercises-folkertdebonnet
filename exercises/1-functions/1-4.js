@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let context = canvas.getContext("2d");
 
-bleublockpuzzle();
+//bleublockpuzzle();
 
 function bleublockpuzzle(){
     context.beginPath();
